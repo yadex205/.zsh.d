@@ -9,6 +9,8 @@ function load_conf_directory() {
 
     if [ -d $target_dir -a -r $target_dir -a -x $target_dir ]; then
         for zshfile in $target_dir/*.zsh; do
+            [[ `basename $zshfile` == '*.zsh' ]] && break
+
             source $zshfile
             local filename=${zshfile#${ZSHHOME}/}
             echo "[zsh] $filename loaded."
