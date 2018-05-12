@@ -6,10 +6,12 @@ ZSH_SECRETS=$ZSHHOME/secrets
 
 function load_conf_directory() {
     local target_dir=$1
+
     if [ -d $target_dir -a -r $target_dir -a -x $target_dir ]; then
         for zshfile in $target_dir/*.zsh; do
-            echo "[ZSH] load `basename $target_dir` $zshfile"
             source $zshfile
+            local filename=${zshfile#${ZSHHOME}/}
+            echo "[zsh] $filename loaded."
         done
     fi
 }
