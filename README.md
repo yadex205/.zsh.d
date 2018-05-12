@@ -1,4 +1,4 @@
 .zsh.d
 ======
 
-My zsh configure.
+My zsh configure only for macOS.
