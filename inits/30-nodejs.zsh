@@ -1,8 +1,9 @@
-# Setup nvm
-export NVM_DIR="$HOME/.nvm"
+# Setup Node.js environment
 
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-    \. "$NVM_DIR/nvm.sh"
-else
-    echo '[zsh] Warn: Cannot initialize nvm.'
+if [ -s "$HOME/.n/bin/n" ]; then
+  export N_PREFIX="$HOME/.n"
+  export PATH="$HOME/.n/bin:$PATH"
+elif [ -s "$HOME/.nvm/nvm.sh" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  \. "$NVM_DIR/nvm.sh"
 fi
