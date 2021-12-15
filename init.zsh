@@ -37,37 +37,35 @@ compinit
 
 
 #############################################
-# Shell environment                         #
+# Variables and aliases                     #
 #############################################
 
-# Common variables
+# Variables
 export PATH="$HOME/.local/bin:$HOME/usr/bin:$PATH"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
+export EDITOR="emacs"
 
 # Alias
 alias ll="ls -l"
 alias la="ls -a"
 alias ffplay="ffplay -x 640 -y 360 -loop 0 -window_title ffplay"
 
-# Default editor
-export EDITOR="emacs"
+# OS specific variables
+if [[ `uname` == "Darwin" ]]; then
+    # Homebrew
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
+
+#############################################
+# Shell environment                         #
+#############################################
 
 # direnv
 if ! type direnv > /dev/null; then
     echo "[zsh] Warn: direnv not found"
 else
     eval "$(direnv hook zsh)"
-fi
-
-
-#############################################
-# macOS (Darwin) shell environment          #
-#############################################
-
-if [[ `uname` == "Darwin" ]]; then
-    # Homebrew
-    export PATH="/opt/homebrew/bin:$PATH"
 fi
 
 
