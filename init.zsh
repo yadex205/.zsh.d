@@ -1,7 +1,7 @@
 # Create symbolic link to me on ${HOME} !
 
 #############################################
-# Zsh itself behaviors                    #
+# Zsh itself behaviors                      #
 #############################################
 
 ## History
@@ -62,6 +62,16 @@ fi
 
 
 #############################################
+# macOS (Darwin) shell environment          #
+#############################################
+
+if [[ `uname` == "Darwin" ]]; then
+    # Homebrew
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
+
+
+#############################################
 # Programming                               #
 #############################################
 
@@ -77,3 +87,18 @@ fi
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+
+#############################################
+# Load secret variables                     #
+#############################################
+
+ZSH_SECRETS=$HOME/.zsh.d/secrets
+
+if [ -d $ZSH_SECRETS -a -r $ZSH_SECRETS -a -x $ZSH_SECRETS ]; then
+    for zshfile in $ZSH_SECRETS/*.zsh; do
+        [[ `basename $zshfile` == "*.zsh" ]] && break
+
+        source $zshfile
+    done
+fi
