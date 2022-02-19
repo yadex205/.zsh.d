@@ -83,6 +83,12 @@ if [ -s "$HOME/.n/bin/n" ]; then
     export PATH="$HOME/.n/bin:$PATH"
 fi
 
+# Deno
+if [ -s "$HOME/.deno/bin/deno" ]; then
+    export DENO_INSTALL="$HOME/.deno"
+    export PATH="$HOME/.deno/bin:$PATH";
+fi
+
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
