@@ -83,10 +83,18 @@ if [ -s "$HOME/.n/bin/n" ]; then
     export PATH="$HOME/.n/bin:$PATH"
 fi
 
+alias npm-local="npm -registry http://localhost:4873"
+
 # Deno
 if [ -s "$HOME/.deno/bin/deno" ]; then
     export DENO_INSTALL="$HOME/.deno"
-    export PATH="$HOME/.deno/bin:$PATH";
+    export PATH="$HOME/.deno/bin:$PATH"
+fi
+
+# Ruby
+if [ -s "$HOME/.rbenv/bin/rbenv" ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init - zsh)"
 fi
 
 # Rust
