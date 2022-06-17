@@ -96,6 +96,7 @@ if [ -s "$HOME/.rbenv/bin/rbenv" ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init - zsh)"
 fi
+alias tags-rails="ripper-tags -e -R --exclude=vendor"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
