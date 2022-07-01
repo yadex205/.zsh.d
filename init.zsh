@@ -91,6 +91,12 @@ if [ -s "$HOME/.deno/bin/deno" ]; then
     export PATH="$HOME/.deno/bin:$PATH"
 fi
 
+# Python
+if [ -s "$HOME/.pyenv/bin/pyenv" ]; then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init - zsh)"
+fi
+
 # Ruby
 if [ -s "$HOME/.rbenv/bin/rbenv" ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
