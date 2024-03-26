@@ -106,7 +106,9 @@ alias tags-rails="ripper-tags -e -R --exclude=vendor"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)" # for ruby-build with ruby 3.2
 
 # Rust
-export PATH="$HOME/.cargo/bin:$PATH"
+if [ -s "$HOME/.cargo/bin/cargo" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
 
 
 #############################################
