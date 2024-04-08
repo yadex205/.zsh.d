@@ -103,7 +103,9 @@ if [ -s "$HOME/.rbenv/bin/rbenv" ]; then
     eval "$(rbenv init - zsh)"
 fi
 alias tags-rails="ripper-tags -e -R --exclude=vendor"
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)" # for ruby-build with ruby 3.2
+if [[ `uname` == "Darwin" ]]; then
+    export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)" # for ruby-build with ruby 3.2
+fi
 
 # Rust
 if [ -s "$HOME/.cargo/bin/cargo" ]; then
