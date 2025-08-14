@@ -68,6 +68,14 @@ else
     eval "$(direnv hook zsh)"
 fi
 
+#############################################
+# AI/LLM                                    #
+#############################################
+
+# llama.cpp
+export LLAMA_ARG_PORT=20565
+export LLAMA_CTX_SIZE=8192
+
 
 #############################################
 # Programming                               #
