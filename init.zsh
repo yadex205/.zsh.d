@@ -57,6 +57,11 @@ if [[ `uname` == "Darwin" ]]; then
     export PATH="/opt/homebrew/bin:$PATH"
 fi
 
+# OS specific aliases
+if [[ "$(uname -r)" == *WSL2* ]]; then
+    alias git="git.exe"
+fi
+
 #############################################
 # Shell environment                         #
 #############################################
